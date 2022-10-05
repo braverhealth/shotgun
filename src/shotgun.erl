@@ -364,7 +364,9 @@ init([{Host, Port, Type, Opts}]) ->
                 transport      => GunType,
                 retry          => 1,
                 retry_timeout  => 1,
-                transport_opts => TransportOpts
+                transport_opts => TransportOpts,
+                %% support for gun 2.0.0+
+                tls_opts => TransportOpts
                },
     GunOpts = maps:merge(DefaultGunOpts, PassedGunOpts),
     Timeout = maps:get(timeout, Opts, 5000),
